@@ -23,11 +23,13 @@ func main() {
 	flag.Parse()
 	config.InitConfig(env)
 
-	fmt.Println("\r\n main_env  " + env)
-
 	// 初始化 Gin 实例
 	router := gin.New()
 
+	// 初始化 DB
+	bootstrap.SetupDB()
+
+	// 初始化路由绑定
 	bootstrap.SetRoute(router)
 
 	err := router.Run(":" + config.Get("app.port"))
