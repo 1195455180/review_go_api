@@ -25,14 +25,7 @@ func ValidateSignupPhoneExist(data interface{}, c *gin.Context) map[string][]str
 		},
 	}
 
-	opts := govalidator.Options{
-		Data:          data,
-		Rules:         rules,
-		TagIdentifier: "valid", // 模型中的 Struct 标签标识符
-		Messages:      message,
-	}
-
-	return govalidator.New(opts).ValidateStruct()
+	return validate(data, rules, message)
 }
 
 type SignupEmailExistRequest struct {
@@ -55,14 +48,5 @@ func ValidateSignupEmailExist(data interface{}, c *gin.Context) map[string][]str
 		},
 	}
 
-	// 配置初始化
-	opts := govalidator.Options{
-		Data:          data,
-		Rules:         rules,
-		TagIdentifier: "valid", // 模型中的 Struct 标签标识符
-		Messages:      message,
-	}
-
-	// 开始验证
-	return govalidator.New(opts).ValidateStruct()
+	return validate(data, rules, message)
 }
