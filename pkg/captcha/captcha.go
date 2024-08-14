@@ -53,7 +53,7 @@ func (c *Captcha) GenerateCaptcha() (id string, b64s, answer string, err error) 
 }
 
 // VerifyCaotcha 验证验证码是否正确
-func (c *Captcha) VerifyCaotcha(id string, answer string) (match bool) {
+func (c *Captcha) VerifyCaptcha(id string, answer string) (match bool) {
 
 	// 方便本地和 API 自动测试
 	if !app.IsProduction() && id == config.GetString("captcha.testing_key") {
