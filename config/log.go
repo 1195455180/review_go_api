@@ -1,8 +1,11 @@
 package config
 
-import "gohub/pkg/config"
+import (
+	"gohub/pkg/config"
+)
 
 func init() {
+
 	config.Add("log", func() map[string]interface{} {
 		return map[string]interface{}{
 			// 日志级别，必须是以下这些选项：
